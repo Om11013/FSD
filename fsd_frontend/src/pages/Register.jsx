@@ -28,9 +28,6 @@ function Register() {
     try {
       e.preventDefault();
 
-      // if (loading) return;
-      // if (file === "") return;
-
       const { firstname, lastname, email, password , role} =
         formDetails;
       if (!firstname || !lastname || !email || !password || !role) {
@@ -43,6 +40,8 @@ function Register() {
         return toast.error("Password must be at least 5 characters long");
       }
 
+
+      //change it to axios
       console.log("Form Data: ", formDetails);
       if (formDetails.role === "patient") {
         fetch("http://localhost:8080/patient/add", {
