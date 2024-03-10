@@ -22,8 +22,7 @@ function Register() {
       [name]: value,
     });
   }
-
-
+  
   const formSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -68,7 +67,7 @@ function Register() {
       return navigate("/login");
     } catch (error) {}
   }
-
+  
   return (
     <section className="register-section flex-center">
       <div className="register-container flex-center">
