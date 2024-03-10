@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../styles/register.css";
+// import "../styles/register.css";
 import toast from "react-hot-toast";
 
 function Register() {
@@ -38,7 +38,6 @@ function Register() {
       } else if (password.length < 5) {
         return toast.error("Password must be at least 5 characters long");
       }
-
 
       //change it to axios
       console.log("Form Data: ", formDetails);

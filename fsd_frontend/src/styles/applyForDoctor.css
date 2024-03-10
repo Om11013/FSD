@@ -1,0 +1,61 @@
+@import url(app.css);
+
+.applyForDoctor-section {
+    width: 100%;
+    height: 100vh;
+  }
+.applyForDoctor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .applyForDoctor-form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* .applyForDoctor-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  } */
+  
+  .applyForDoctor-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .applyForDoctor-form input[type="text"],
+  .applyForDoctor-form input[type="date"],
+  .applyForDoctor-form input[type="tel"],
+  .applyForDoctor-form input[type="email"],
+  .applyForDoctor-form select {
+    width: calc(100% - 20px); /* Adjusted width and margin */
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .applyForDoctor-form select {
+    width: 100%;
+  }
+  
+  .applyForDoctor-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .applyForDoctor-form button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -2,8 +2,10 @@ import "./styles/app.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+// import Appointments from "./pages/Appointments";
+import ApplyForDoctor from "./pages/ApplyForDoctor";
 import { Toaster } from "react-hot-toast";
-import { Protected, Public, Admin } from "./middleware/route";
+// import { Protected, Public, Admin } from "./middleware/route";
 import React, { lazy, Suspense } from "react";
 // import Loading from "./components/Loading";
 
@@ -29,9 +31,7 @@ function App() {
           <Route
             path="/register"
             element={
-              <Public>
                 <Register />
-              </Public>
             }
           />
           <Route
@@ -58,14 +58,12 @@ function App() {
               </Protected>
             }
           /> */}
-          {/* <Route
+          <Route
             path="/applyfordoctor"
             element={
-              <Protected>
-                <ApplyDoctor />
-              </Protected>
+                <ApplyForDoctor />
             }
-          /> */}
+          />
           {/* <Route
             path="/profile"
             element={

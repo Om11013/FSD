@@ -30,7 +30,7 @@ const Navbar = () => {
             <NavLink to={"/dashboard/users"}>Dashboard</NavLink>
           </li> */}
           <li>
-            <NavLink to={"/appointments"}>Appointments</NavLink>
+            <NavLink to={"./pages/appointments"}>Appointments</NavLink>
           </li>
           {/* <li>
             <NavLink to={"/notifications"}>Notifications</NavLink>
