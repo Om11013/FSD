@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 // import "../styles/register.css";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 function Register() {
-  // const [file, setFile] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [formDetails, setFormDetails] = useState({
     firstname: "",
     lastname: "",
@@ -27,8 +26,8 @@ function Register() {
     try {
       e.preventDefault();
 
-      const { firstname, lastname, email, password , role} =
-        formDetails;
+      const { firstname, lastname, email, password, role } = formDetails;
+      
       if (!firstname || !lastname || !email || !password || !role) {
         return toast.error("Input field should not be empty");
       } else if (firstname.length < 3) {
@@ -39,30 +38,37 @@ function Register() {
         return toast.error("Password must be at least 5 characters long");
       }
 
-      //change it to axios
       console.log("Form Data: ", formDetails);
+
       if (formDetails.role === "patient") {
-        fetch("http://localhost:8080/patient/add", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formDetails)
-        }).then(() => {
-          console.log("New Entry done")
-          toast("New entry done")
-        }).catch(error => console.error('Error occured: ', error),
-        );
+        axios.post("http://localhost:8080/patient/add", formDetails, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          console.log("New patient Entry done");
+          toast("New patient entry done");
+        })
+        .catch(error => {
+          console.error('Error occured: ', error);
+        });
       }
       else if (formDetails.role === "doctor") {
-        fetch("http://localhost:8080/doctor/add", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formDetails)
-        }).then(() => {
-          console.log("New Entry done")
-          toast("New entry done")
-        }).catch(error => console.error('Error occured: ', error),
-        );
+        axios.post("http://localhost:8080/doctor/add", formDetails, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          console.log("New doctor Entry done");
+          toast("New doctor entry done");
+      })
+        .catch(error => {
+          console.error('Error occured: ', error);
+        });
       }
+      
       return navigate("/login");
     } catch (error) {}
   }

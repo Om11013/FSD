@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
 import { HashLink } from "react-router-hash-link";
 import { FiMenu } from "react-icons/fi";
@@ -7,11 +7,11 @@ import { RxCross1 } from "react-icons/rx";
 
 const Navbar = () => {
   const [iconActive, setIconActive] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const logoutFunc = () => {
-    navigate("/login");
-  };
+  // const logoutFunc = () => {
+  //   navigate("/login");
+  // };
 
   return (
     <header>
@@ -29,9 +29,9 @@ const Navbar = () => {
           <li>
             <NavLink to={"/dashboard/users"}>Dashboard</NavLink>
           </li> */}
-          <li>
+          {/* <li>
             <NavLink to={"./pages/appointments"}>Appointments</NavLink>
-          </li>
+          </li> */}
           {/* <li>
             <NavLink to={"/notifications"}>Notifications</NavLink>
           </li> */}

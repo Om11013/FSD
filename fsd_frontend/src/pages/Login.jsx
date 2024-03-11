@@ -4,7 +4,7 @@ import "../styles/register.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../redux/reducers/rootSlice";
+// import { setUserInfo } from "../redux/reducers/rootSlice";
 import jwt_decode from "jwt-decode";
 // import fetchData from "../helper/apiCall";
 
@@ -49,7 +49,7 @@ function Login() {
         }
       );
       localStorage.setItem("token", data.token);
-      dispatch(setUserInfo(jwt_decode(data.token).userId));
+      // dispatch(setUserInfo(jwt_decode(data.token).userId));
       getUser(jwt_decode(data.token).userId);
     } catch (error) {
       return error;
