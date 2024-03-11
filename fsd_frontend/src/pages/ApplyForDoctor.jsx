@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/applyForDoctor.css';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 function ApplyForDoctor() {
   const [state, setFormData] = useState({
@@ -46,18 +47,16 @@ function ApplyForDoctor() {
         .catch(error => {
           console.error('Error occured: ', error);
         });
-
-
-
-
-
   };
 
   return (
+    <>
+      <Navbar/>
     <section className="applyForDoctor-section flex-center">
       <div className="applyForDoctor-container flex-center">
-        <h2 className="applyForDoctor-form h2">Register for an Appointment</h2>
         <form onSubmit={handleSubmit} className="applyForDoctor-form">
+        <h2>Register for an Appointment</h2>
+
           <label>
             Name:
             <input
@@ -138,7 +137,8 @@ function ApplyForDoctor() {
           <button className="applyForDoctor-form button" type="submit">Register</button>
         </form>
       </div>
-    </section>
+      </section>
+      </>
   );
 }
 

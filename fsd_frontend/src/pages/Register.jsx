@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 // import "../styles/register.css";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 function Register() {
   const [formDetails, setFormDetails] = useState({
@@ -74,6 +75,8 @@ function Register() {
   }
   
   return (
+    <>
+      <Navbar/>
     <section className="register-section flex-center">
       <div className="register-container flex-center">
         <h2 className="form-heading">Sign Up</h2>
@@ -139,7 +142,8 @@ function Register() {
           </NavLink>
         </p>
       </div>
-    </section>
+      </section>
+      </>
   );
 }
 

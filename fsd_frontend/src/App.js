@@ -2,7 +2,7 @@ import "./styles/app.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// import Appointments from "./pages/Appointments";
+import Appointments from "./pages/Appointments";
 import ApplyForDoctor from "./pages/ApplyForDoctor";
 import { Toaster } from "react-hot-toast";
 // import { Protected, Public, Admin } from "./middleware/route";
@@ -42,14 +42,12 @@ function App() {
             path="/doctors"
             element={<Doctors />}
           /> */}
-          {/* <Route
+          <Route
             path="/appointments"
             element={
-              <Protected>
                 <Appointments />
-              </Protected>
             }
-          /> */}
+          />
           {/* <Route
             path="/notifications"
             element={

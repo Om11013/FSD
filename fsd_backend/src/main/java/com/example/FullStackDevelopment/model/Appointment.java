@@ -14,7 +14,7 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id=1;
-    private String patientName;
+    private String patient_name;
     private Date dob;
     private long contact;
     private String email;
@@ -30,12 +30,13 @@ public class Appointment {
         this.id = id+1;
     }
 
-    public String getPatientName() {
-        return patientName;
+
+    public String getPatient_name() {
+        return patient_name;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setPatient_name(String patient_name) {
+        this.patient_name = patient_name;
     }
 
     public Date getDob() {

@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/register.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { setUserInfo } from "../redux/reducers/rootSlice";
 import jwt_decode from "jwt-decode";
 // import fetchData from "../helper/apiCall";
@@ -11,7 +11,7 @@ import jwt_decode from "jwt-decode";
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 function Login() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
