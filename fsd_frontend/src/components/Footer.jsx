@@ -22,7 +22,7 @@ const Footer = () => {
                 <NavLink to={"/appointments"}>Appointments</NavLink>
               </li>
               <li>
-                <NavLink to={"/notifications"}>Notifications</NavLink>
+                <NavLink to={"/applyfordoctor"}>Apply For Doctor</NavLink>
               </li>
               <li>
                 <HashLink to={"/#contact"}>Contact Us</HashLink>

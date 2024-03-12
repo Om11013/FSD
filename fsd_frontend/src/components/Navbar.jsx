@@ -23,25 +23,15 @@ const Navbar = () => {
           <li>
             <NavLink to={"/"}>Home</NavLink>
           </li>
-          {/* <li>
-            <NavLink to={"/doctors"}>Doctors</NavLink>
+          <li>
+            <NavLink to={"/applyfordoctor"}>Apply For Doctor</NavLink>
           </li>
           <li>
-            <NavLink to={"/dashboard/users"}>Dashboard</NavLink>
-          </li> */}
-          
-          <li>
-            <NavLink to={"./pages/appointments"}>Appointments</NavLink>
+            <NavLink to={"/appointments"}>Appointments</NavLink>
           </li>
-          {/* <li>
-            <NavLink to={"/notifications"}>Notifications</NavLink>
-          </li> */}
           <li>
             <HashLink to={"/#contact"}>Contact Us</HashLink>
           </li>
-          {/* <li>
-            <NavLink to={"/profile"}>Profile</NavLink>
-          </li> */}
           {/* <li>
             <NavLink className="btn" to={"/login"}>
               Login

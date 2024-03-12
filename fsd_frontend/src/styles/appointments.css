@@ -1,0 +1,42 @@
+@import url(app.css);
+
+.appointments-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .appointments-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .appointments-table-h2{
+    justify-content: center
+  }
+  
+  .appointments-table th,
+  .appointments-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .appointments-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .appointments-table td button {
+    background-color: #ff5555;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .appointments-table td button:hover {
+    background-color: #ff0000;
+  }

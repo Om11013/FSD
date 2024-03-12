@@ -17,6 +17,7 @@ const Contact = () => {
   };
 
   return (
+    
     <section
       className="register-section flex-center"
       id="contact"
