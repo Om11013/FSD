@@ -1,9 +1,8 @@
 package com.example.FullStackDevelopment.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Doctor {
@@ -18,6 +17,9 @@ public class Doctor {
     private String email;
     private String password;
     private String role;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Appointment> appointmentList;
 
     public int getId() {
         return id;
@@ -66,4 +68,13 @@ public class Doctor {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public List<Appointment> getAppointmentList() {
+        return appointmentList;
+    }
+
+    public void setAppointmentList(List<Appointment> appointmentList) {
+        this.appointmentList = appointmentList;
+    }
 }
+

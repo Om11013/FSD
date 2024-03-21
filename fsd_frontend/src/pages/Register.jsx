@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import "../styles/register.css";
+import "../styles/register.css";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Navbar from "../components/Navbar";

@@ -32,11 +32,11 @@ const Navbar = () => {
           <li>
             <HashLink to={"/#contact"}>Contact Us</HashLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink className="btn" to={"/login"}>
               Login
             </NavLink>
-          </li> */}
+          </li>
           <li>
             <NavLink className="btn" to={"/register"}>
               Register

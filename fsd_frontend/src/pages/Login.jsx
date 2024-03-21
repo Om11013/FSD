@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../styles/register.css";
+import "../styles/login.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-// import { useDispatch } from "react-redux";
-// import { setUserInfo } from "../redux/reducers/rootSlice";
-import jwt_decode from "jwt-decode";
-// import fetchData from "../helper/apiCall";
+// import jwt_decode from "jwt-decode";
+import Navbar from "../components/Navbar";
 
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 function Login() {
-  // const dispatch = useDispatch();
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
+    role: "patient", // Default role set to "patient"
   });
   const navigate = useNavigate();
 
   const inputChange = (e) => {
     const { name, value } = e.target;
-    return setFormDetails({
+    setFormDetails({
       ...formDetails,
       [name]: value,
     });
@@ -29,28 +27,46 @@ function Login() {
   const formSubmit = async (e) => {
     try {
       e.preventDefault();
-      const { email, password } = formDetails;
+      const { email, password, role } = formDetails;
       if (!email || !password) {
         return toast.error("Input field should not be empty");
       } else if (password.length < 5) {
         return toast.error("Password must be at least 5 characters long");
       }
 
-      const { data } = await toast.promise(
-        axios.post("/user/login", {
-          email,
-          password,
-        }),
-        {
-          pending: "Logging in...",
-          success: "Login successfully",
-          error: "Unable to login user",
-          loading: "Logging user...",
-        }
-      );
-      localStorage.setItem("token", data.token);
-      // dispatch(setUserInfo(jwt_decode(data.token).userId));
-      getUser(jwt_decode(data.token).userId);
+      if (formDetails.role === "doctor") {
+        axios.post("http://localhost:8080/doctor/login", formDetails, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          console.log("Doctor verified");
+          toast("Doctor verified");
+          navigate("/")
+        })
+        .catch(error => {
+          console.error('Error occured: ', error);
+          toast("Doctor not present");
+        });
+      }
+      else if (formDetails.role === "patient") {
+        axios.post("http://localhost:8080/patient/login", formDetails, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          console.log("Patient verified");
+          toast("Patient verified");
+          navigate("/")
+        })
+        .catch(error => {
+          console.error('Error occured: ', error);
+          toast("Patient not present");
+        });
+      }
+
     } catch (error) {
       return error;
     }
@@ -58,8 +74,6 @@ function Login() {
 
   const getUser = async (id) => {
     try {
-      // const temp = await fetchData(`/user/getuser/${id}`);
-      // dispatch(setUserInfo(temp));
       return navigate("/");
     } catch (error) {
       return error;
@@ -67,13 +81,35 @@ function Login() {
   };
 
   return (
+    <>
+      <Navbar/>
     <section className="register-section flex-center">
       <div className="register-container flex-center">
         <h2 className="form-heading">Sign In</h2>
-        <form
-          onSubmit={formSubmit}
-          className="register-form"
-        >
+        {/* Wrapping email input and password input in separate divs */}
+        <div className="role-selection">
+          <label>
+            <input
+              type="radio"
+              name="role"
+              value="doctor"
+              checked={formDetails.role === "doctor"}
+              onChange={inputChange}
+            />
+            Doctor
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="role"
+              value="patient"
+              checked={formDetails.role === "patient"}
+              onChange={inputChange}
+            />
+            Patient
+          </label>
+        </div>
+        <div className="form-field">
           <input
             type="email"
             name="email"
@@ -82,6 +118,8 @@ function Login() {
             value={formDetails.email}
             onChange={inputChange}
           />
+        </div>
+        <div className="form-field">
           <input
             type="password"
             name="password"
@@ -90,24 +128,22 @@ function Login() {
             value={formDetails.password}
             onChange={inputChange}
           />
-          <button
-            type="submit"
-            className="btn form-btn"
-          >
-            sign in
+        </div>
+      
+        <form onSubmit={formSubmit} className="register-form">
+          <button type="submit" className="btn form-btn">
+            Sign in
           </button>
         </form>
         <p>
           Not a user?{" "}
-          <NavLink
-            className="login-link"
-            to={"/register"}
-          >
+          <NavLink className="login-link" to={"/register"}>
             Register
           </NavLink>
         </p>
       </div>
-    </section>
+      </section>
+      </>
   );
 }
 
