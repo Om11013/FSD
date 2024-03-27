@@ -1,5 +1,5 @@
-                                                              Doctor Appointment Booking Website
-
+**                                       Doctor Appointment Booking Website
+**
 Welcome to the Doctor Appointment Booking Website repository! This web application allows users to book appointments with doctors seamlessly.
 
 #Overview
